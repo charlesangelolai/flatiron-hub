@@ -6,11 +6,13 @@
     <p>Project Phase: <%= @project.phase_num %></p>
     <p>Description: <%= @project.description %></p>
     <p>Website Link: <%= @project.website_link %></p>
-    <p>GitHub Link: <%= @project.github_link %></p>
-    <p>Blog Link: <%= @project.blog_link %></p>
-    <p>Video Link: <%= @project.video_link %></p>
-    <div class="card-action">
-    <a href="#">Edit</a>
-    <a href="#">Delete</a>
+    <p>GitHub Link: <a href="<%= @project.github_link %>"><%= @project.github_link %></a></p>
+    <p>Blog Link: <a href="<%= @project.blog_link %>"><%= @project.blog_link %></a></p>
+    <p>Video Link: <a href="<%= @project.video_link %>"><%= @project.video_link %></a></p>
+    <br>
+    <div class="card-action" style="padding-bottom: 0;">
+      <a href="#">Edit</a>
+      <a href="#">Delete</a>
+    </div>
   </div>
 </div>
