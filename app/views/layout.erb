@@ -10,6 +10,8 @@
     <title>FlatironStats</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -17,34 +19,38 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
-  <body>
+  <body style="display: flex; min-height: 100vh; flex-direction: column;">
 
-    <nav>
+    <nav class="cyan accent-4">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">FlatironStats</a>
+        <a href="/" class="brand-logo">FlatironStats</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if logged_in? %>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Class</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/class">Class</a></li>
+            <li><a href="/logout">Log Out</a></li>
           <% else %>
-            <li><a href="#">Log In</a></li>
+            <li><a href="/login">Log In</a></li>
             <li><a href="/signup">Sign Up</a></li>
           <% end %>
         </ul>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="flex: 1 0 auto;">
+      <br>
       <%= yield %>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div class="row" style="padding: 0; margin: 0;">
+      <img style="margin: 0; padding: 0;" class="col s16" src="/images/wave.svg" alt="">
+    </div>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
   </body>
+
 </html>
