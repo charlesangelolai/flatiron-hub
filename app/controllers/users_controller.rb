@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     user = User.new(params[:user])
     if user.save
       session[:user_id] = user.id
-      redirect '/index'
+      erb :index
     else
       redirect '/signup'
     end
