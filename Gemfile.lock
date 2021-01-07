@@ -133,6 +133,3 @@ DEPENDENCIES
   sinatra-activerecord
   thin
   tux
-
-BUNDLED WITH
-   2.2.4
