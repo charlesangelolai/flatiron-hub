@@ -1,0 +1,63 @@
+<h4>Create New Project</h4>
+<br>
+<div class="row">
+  <form action="/projects" method="post" class="col s12">
+    <input type="hidden" name="project[user_id]" value="<%= current_user[:id] %>">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="name" type="text" name="project[name]" class="validate">
+        <label for="name">Project Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="description" class="materialize-textarea" name="project[description]"></textarea>
+        <label for="description">Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="web_link" type="text" name="project[website_link]" class="validate">
+        <label for="web_link">Website Link</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="web_link" type="text" name="project[github_link]" class="validate">
+        <label for="web_link">GitHub Link</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="blog_link" type="text" name="project[blog_link]" class="validate">
+        <label for="blog_link">Blog Link</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="video_link" type="text" name="project[video_link]" class="validate">
+        <label for="video_link">Video Link</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select name="project[phase_num]">
+          <option value="" disabled selected>Phase Number</option>
+          <option value=1>Phase 1</option>
+          <option value=2>Phase 2</option>
+          <option value=3>Phase 3</option>
+          <option value=4>Phase 4</option>
+          <option value=5>Phase 5</option>
+        </select>
+        <label>Project Phase</label>
+      </div>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn-small cyan accent-4">Create Project</button>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>

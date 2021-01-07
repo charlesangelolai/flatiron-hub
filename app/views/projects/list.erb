@@ -1,0 +1,10 @@
+<h3>Projects List</h3>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li><a href="/projects/<%= project.id %>"><%= project.name %></a></li>
+  <% end %>
+</ul>
+
+<br>
+<a href="/projects/new" class="waves-effect waves-light btn cyan accent-4">Create New Project</a>
