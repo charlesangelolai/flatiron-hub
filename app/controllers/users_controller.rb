@@ -5,11 +5,11 @@ class UsersController < ApplicationController
 
   post '/signup' do
     user = User.new(params[:user])
-    if user.save
+    if params[:user].values.any?{|i|i.empty?} || !user.save
+      redirect '/signup'
+    else
       session[:user_id] = user.id
       erb :index
-    else
-      redirect '/signup'
     end
   end
 
@@ -55,9 +55,9 @@ class UsersController < ApplicationController
   end
 
   patch '/profile/:username' do
-    binding.pry
     find_user
     redirect_if_user_not_found
+    redirect_if_not_user
     if @user.update(params[:user])
       redirect "/profile/#{@user.username}"
     else
