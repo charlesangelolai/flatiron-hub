@@ -66,10 +66,6 @@ class UsersController < ApplicationController
   end
 
   private
-  def find_user
-    @user = User.find_by_username(params[:username])
-  end
-
   def redirect_if_user_not_found
     redirect "/profile" unless @user
   end
