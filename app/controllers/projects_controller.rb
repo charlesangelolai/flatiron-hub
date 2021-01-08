@@ -3,16 +3,17 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
     erb :'/projects/list'
   end
+
   get '/projects/new' do
     erb :'/projects/new'
   end
 
   post '/projects' do
     project = Project.new(params[:project])
-    if project.save
-      redirect '/projects'
-    else
+    if params[:project].values.any?{|i|i.empty?} || !project.save
       redirect '/projects/new'
+    else
+      redirect '/projects'
     end
   end
 
@@ -22,6 +23,32 @@ class ProjectsController < ApplicationController
     erb :'/projects/show'
   end
 
+  get '/projects/:id/edit' do
+    redirect_if_not_logged_in
+    find_project
+    redirect_if_project_not_found
+    redirect_if_not_owner
+    erb :'/projects/edit'
+  end
+
+  patch "/project/:id" do
+    find_project
+    redirect_if_project_not_found
+    if @project.update(params[:project])
+      redirect "/projects/#{@project.id}"
+    else
+      redirect "/proejects/#{@project.id}/edit"
+    end
+  end
+
+  delete "/project/:id" do
+    find_project
+    redirect_if_project_not_found
+    redirect_if_not_owner
+    @project.destroy
+    redirect "/games"
+  end
+
   private
   def find_project
     @project = Project.find_by_id(params[:id])
@@ -29,5 +56,9 @@ class ProjectsController < ApplicationController
 
   def redirect_if_project_not_found
     redirect "/projects" unless @project
+  end
+
+  def redirect_if_not_owner
+    redirect "/projects" unless @user == current_user
   end
 end
