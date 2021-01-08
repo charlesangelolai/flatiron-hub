@@ -2,6 +2,7 @@
 <br>
 <div class="row">
   <form action="/projects" method="post" class="col s12">
+    <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="project[user_id]" value="<%= current_user[:id] %>">
     <div class="row">
       <div class="input-field col s12">
