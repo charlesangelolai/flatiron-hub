@@ -14,9 +14,22 @@
         <p>Cohort: <%= @user.cohort_id %></p>
         <p>Date Registered: <%= @user.created_at %></p>
       </div>
-      <div class="card-action">
-        <a href="/profile/<%= @user.username %>/edit">Edit Profile</a>
-      </div>
+      <% if current_user == @user %>
+        <div class="card-action">
+          <a href="/profile/<%= @user.username %>/edit">Edit Profile</a>
+        </div>
+      <% else %>
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Projects</span>
+            <ul class="collection">
+              <% @user.projects.each do |project| %>
+                <a href="/projects/<%= project.id %>" class="collection-item"><%= project.name %></a>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
