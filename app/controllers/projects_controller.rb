@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     erb :'/projects/edit'
   end
 
-  patch "/project/:id" do
+  patch "/projects/:id" do
     find_project
     redirect_if_project_not_found
     if @project.update(params[:project])
@@ -41,12 +41,13 @@ class ProjectsController < ApplicationController
     end
   end
 
-  delete "/project/:id" do
+  delete "/projects/:id" do
+    find_user
     find_project
     redirect_if_project_not_found
     redirect_if_not_owner
     @project.destroy
-    redirect "/games"
+    redirect "/projects"
   end
 
   private
@@ -59,6 +60,6 @@ class ProjectsController < ApplicationController
   end
 
   def redirect_if_not_owner
-    redirect "/projects" unless @user == current_user
+    redirect "/projects" unless @project.user == current_user
   end
 end
