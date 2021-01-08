@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     end
     
     def redirect_if_logged_in
-      redirect "/games" if is_logged_in?
+      redirect "/" if is_logged_in?
     end
     
     def redirect_if_not_logged_in
