@@ -7,11 +7,10 @@
   <div class="col s7">
     <div class="card cyan accent-4">
       <div class="card-content white-text">
-        <span class="card-title">Students</span>
-        <ul>
+        <span class="card-title">Students: </span>
+        <ul class="collection">
           <% @students.each do |student| %>
-            <li><a class="btn-small" href="/profile/<%= student.username %>"><%= student.first_name %> <%= student.last_name %></a></li>
-            <br>
+            <li><a class="collection-item" href="/profile/<%= student.username %>"><%= student.first_name %> <%= student.last_name %></a></li>
           <% end %>
         </ul>
       </div>
