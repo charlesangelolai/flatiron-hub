@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20210107055710) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.integer  "phase_num"
     t.string   "website_link"
     t.string   "github_link"
@@ -35,39 +35,6 @@ ActiveRecord::Schema.define(version: 20210107055710) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "survey_data", force: :cascade do |t|
-    t.string   "design_data"
-    t.string   "navigation_data"
-    t.string   "content_data"
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "survey_questions", force: :cascade do |t|
-    t.string   "design_question"
-    t.string   "navigation_question"
-    t.string   "content_question"
-    t.string   "performance_question"
-    t.integer  "phase_num"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "surveys", force: :cascade do |t|
-    t.string   "design_question"
-    t.string   "navigation_question"
-    t.string   "content_question"
-    t.string   "performance_question"
-    t.integer  "phase_num"
-    t.integer  "rating"
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|
