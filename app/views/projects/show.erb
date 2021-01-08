@@ -9,12 +9,12 @@
     <p>GitHub Link: <a href="<%= @project.github_link %>"><%= @project.github_link %></a></p>
     <p>Blog Link: <a href="<%= @project.blog_link %>"><%= @project.blog_link %></a></p>
     <p>Video Link: <a href="<%= @project.video_link %>"><%= @project.video_link %></a></p>
-    <% if current_user.id == @project.user_id %>
-      <br>
-      <div class="card-action" style="padding-bottom: 0;">
-        <a href="/projects/<%= current_user.id %>/edit">Edit</a>
-        <a href="/projects/delete">Delete</a>
-      </div>
-    <% end %>
   </div>
 </div>
+<% if current_user.id == @project.user_id %>
+  <form action="/projects/<%= @project.id %>" method="post">
+    <a href="/projects/<%= @project.id %>/edit" class="btn-small cyan accent-4">Edit</a>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete" class="btn-small red white-text">
+  </form>
+<% end %>
