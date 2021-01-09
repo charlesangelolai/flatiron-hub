@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   get '/signup' do
+    @cohorts = Cohort.all
     erb :'/users/signup'
   end
 
