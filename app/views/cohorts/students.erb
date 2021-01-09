@@ -7,7 +7,7 @@
   <div class="col s7">
     <div class="card cyan accent-4">
       <div class="card-content white-text">
-        <span class="card-title">Students: </span>
+        <span class="card-title" style="padding-bottom: 15px;"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Students: </span>
         <ul class="collection">
           <% @students.each do |student| %>
             <li><a class="collection-item" href="/profile/<%= student.username %>"><%= student.first_name %> <%= student.last_name %></a></li>
