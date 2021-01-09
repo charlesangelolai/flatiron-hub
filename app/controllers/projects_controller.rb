@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
   patch "/projects/:id" do
     find_project
     redirect_if_project_not_found
+    redirect_if_not_owner
     if @project.update(params[:project])
       redirect "/projects/#{@project.id}"
     else
