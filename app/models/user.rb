@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :projects
+  belongs_to :cohort
 
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true, uniqueness: true
