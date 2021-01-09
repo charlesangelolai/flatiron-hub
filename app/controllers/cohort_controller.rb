@@ -1,7 +1,7 @@
 ### User.find_by(cohort_id: Cohort.all.first.cohort_id)
 
 class CohortController < ApplicationController
-  get '/cohort' do
+  get '/cohorts' do
     @cohorts = Cohort.all
     erb :'/cohorts/list'
   end
