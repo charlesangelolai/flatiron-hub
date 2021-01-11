@@ -10,12 +10,3 @@ class Project < ActiveRecord::Base
   validates :video_link, presence: true
   validates :user_id, presence: true
 end
-
-# t.string :name
-# t.string :description
-# t.integer :phase_num
-# t.string :website_link
-# t.string :github_link
-# t.string :blog_link
-# t.string :video_link
-# t.integer :user_id
