@@ -43,6 +43,14 @@
       </div>
     </nav>
 
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <div class="card-panel red darken-2 white-text" style="padding-top: 0; padding-bottom: 0;">
+          <p><%= error %> </p>
+        </div>
+      <% end %>
+    <% end %>
+
     <div class="container" style="flex: 1 0 auto;">
       <br>
       <%= yield %>
