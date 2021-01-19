@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
   post '/signup' do
     user = User.new(params[:user])
-    user.cohort_name = Cohort.find(user.cohort_id).name
+    
+    user.cohort_name = Cohort.find(user.cohort_id).name if user.cohort_id
+    
     if !user.save
       user.errors.messages[:password_digest] = nil
       flash[:errors] = user.errors.full_messages
