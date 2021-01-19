@@ -18,24 +18,18 @@
         <label for="username">Username</label>
       </div>
       <div class="input-field col s6">
-        <input id="email" type="text" name="user[email]" class="validate">
-        <label for="email">Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
         <input id="password" type="password" name="user[password]" class="validate">
         <label for="password">Password</label>
       </div>
-      <div class="input-field col s6">
-        <input id="confirm_password" type="password" class="validate">
-        <label for="confirm_password">Confirm Password</label>
-      </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
+        <input id="email" type="text" name="user[email]" class="validate">
+        <label for="email">Email</label>
+      </div>
+      <div class="input-field col s6">
         <select type="text" name="user[cohort_id]">
-          <option value="" disabled selected>Choose your cohort</option>
+          <option value="" disabled selected>Select your cohort</option>
           <% @cohorts.each do |cohort| %>
             <option value="<%= cohort.cohort_id %>"><%= cohort.cohort_id %></option>
           <% end %>
