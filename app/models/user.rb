@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :cohort
 
   validates :username, presence: true, uniqueness: true
-  validates :password_digest, presence: true, uniqueness: true
+  validates :password_digest, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
