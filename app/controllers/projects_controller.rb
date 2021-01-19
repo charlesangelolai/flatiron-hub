@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
 
   post '/projects' do
     project = Project.new(params[:project])
-    if params[:project].values.any?{|i|i.empty?} || !project.save
+    if !project.save
+      flash[:errors] = project.errors.full_messages
       redirect '/projects/new'
     else
       redirect '/projects'
@@ -57,10 +58,16 @@ class ProjectsController < ApplicationController
   end
 
   def redirect_if_project_not_found
-    redirect "/projects" unless @project
+    unless @project
+      flash[:errors] = ["Project not found."]
+      redirect "/projects"
+    end
   end
 
   def redirect_if_not_owner
-    redirect "/projects" unless @project.user == current_user
+    unless @project.user == current_user
+      flash[:errors] = ["Unauthorized request."]
+      redirect "/projects"
+    end
   end
 end
