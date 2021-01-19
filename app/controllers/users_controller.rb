@@ -40,22 +40,26 @@ class UsersController < ApplicationController
   end
 
   get '/profile' do
+    redirect_if_not_logged_in
     @user = current_user
     erb :'/users/profile'
   end
 
   get '/profile/edit' do
+    redirect_if_not_logged_in
     @user = current_user
     erb :'/users/edit'
   end
 
   get '/profile/:username' do
+    redirect_if_not_logged_in
     find_user
     redirect_if_user_not_found
     erb :'/users/profile'
   end
 
   get '/profile/:username/edit' do
+    redirect_if_not_logged_in
     find_user
     redirect_if_user_not_found
     redirect_if_not_user
@@ -63,6 +67,7 @@ class UsersController < ApplicationController
   end
 
   patch '/profile/:username' do
+    redirect_if_not_logged_in
     find_user
     redirect_if_user_not_found
     redirect_if_not_user
