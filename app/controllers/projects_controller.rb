@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
     if @project.update(params[:project])
       redirect "/projects/#{@project.id}"
     else
-      redirect "/proejects/#{@project.id}/edit"
+      redirect "/projects/#{@project.id}/edit"
     end
   end
 
