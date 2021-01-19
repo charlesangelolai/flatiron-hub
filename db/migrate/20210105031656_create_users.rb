@@ -6,7 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.string :cohort_id
+      t.string :cohort_name
+      t.integer :cohort_id
 
       t.timestamps null: false
     end

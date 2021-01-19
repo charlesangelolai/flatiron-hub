@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20210107055710) do
   enable_extension "plpgsql"
 
   create_table "cohorts", force: :cascade do |t|
-    t.string   "cohort_id"
+    t.string   "name"
     t.string   "program"
     t.string   "time"
     t.datetime "created_at", null: false
@@ -43,7 +43,8 @@ ActiveRecord::Schema.define(version: 20210107055710) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "cohort_id"
+    t.string   "cohort_name"
+    t.integer  "cohort_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

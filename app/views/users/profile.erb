@@ -11,7 +11,7 @@
         <p>First Name: <%= @user.first_name %></p>
         <p>Last Name: <%= @user.last_name %></p>
         <p>Email: <%= @user.email %></p>
-        <p>Cohort: <%= @user.cohort_id %></p>
+        <p>Cohort: <%= @user.cohort_name %></p>
         <p>Date Registered: <%= @user.created_at %></p>
       </div>
       <% if current_user == @user %>

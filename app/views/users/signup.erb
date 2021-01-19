@@ -31,7 +31,7 @@
         <select type="text" name="user[cohort_id]">
           <option value="" disabled selected>Select your cohort</option>
           <% @cohorts.each do |cohort| %>
-            <option value="<%= cohort.cohort_id %>"><%= cohort.cohort_id %></option>
+            <option value="<%= cohort.id %>"><%= cohort.name %></option>
           <% end %>
         </select>
         <label>Cohort</label>

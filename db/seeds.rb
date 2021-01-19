@@ -11,7 +11,7 @@ cohort_list = {
 
 cohort_list.each do |name, cohort_hash|
   c = Cohort.new
-  c.cohort_id = name
+  c.name = name
   cohort_hash.each do |attribute, value|
     c[attribute] = value
   end

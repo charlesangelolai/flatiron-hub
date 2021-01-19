@@ -1,7 +1,7 @@
 class CreateCohorts < ActiveRecord::Migration
   def change
     create_table :cohorts do |t|
-      t.string :cohort_id
+      t.string :name
       t.string :program
       t.string :time
 

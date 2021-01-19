@@ -2,6 +2,6 @@
 <br>
 <div class="collection">
   <% @cohorts.each do |cohort| %>
-    <a href="/cohorts/<%= cohort.cohort_id %>" class="collection-item"><%= cohort.cohort_id %></a>
+    <a href="/cohorts/<%= cohort.name %>" class="collection-item"><%= cohort.name %></a>
   <% end %>
 </div>
